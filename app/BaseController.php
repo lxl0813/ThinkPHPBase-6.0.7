@@ -62,12 +62,10 @@ abstract class BaseController
     {
         $this->app     = $app;
         $this->request = $this->app->request;
-
         //获取分页
         $this->page     =   (int)Request::param('page',1);
         //获取每页条数
         $this->pageSize =   (int)Request::param('page_size',Config::get('app.page_size'));
-
         // 控制器初始化
         $this->initialize();
     }
@@ -77,7 +75,9 @@ abstract class BaseController
      *初始化
      */
     protected function initialize()
-    {}
+    {
+
+    }
 
     /**
      * 验证数据
@@ -112,7 +112,6 @@ abstract class BaseController
         if ($batch || $this->batchValidate) {
             $v->batch(true);
         }
-
         return $v->failException(true)->check($data);
     }
 
@@ -126,7 +125,7 @@ abstract class BaseController
     {
         // TODO: Implement __call() method.
         //404,方法不存在
-        return $this->ResponseCreate([],"找不到{$name}","action_not_found",404);
+        return $this->ResponseCreate("找不到{$name}",[],"action_not_found",404);
     }
 
 }
