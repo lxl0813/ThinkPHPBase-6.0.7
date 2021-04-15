@@ -1,19 +1,30 @@
 <?php
-// +----------------------------------------------------------------------
-// | ThinkPHP [ WE CAN DO IT JUST THINK ]
-// +----------------------------------------------------------------------
-// | Copyright (c) 2006~2018 http://thinkphp.cn All rights reserved.
-// +----------------------------------------------------------------------
-// | Licensed ( http://www.apache.org/licenses/LICENSE-2.0 )
-// +----------------------------------------------------------------------
-// | Author: liu21st <liu21st@gmail.com>
-// +----------------------------------------------------------------------
+
 use think\facade\Route;
 
+/**
+*   @api v1
+*/
+Route::group( 'api/v1',function () {
+    //用户模块
+    Route::group('users',function (){
+        //用户登录注册
+        Route::group('auth',function (){
+            Route::get('login', 'userLogin');
+            Route::get('register', 'userRegister');
+        })->prefix('v1.controller.Auth/');
 
-//用户模块
-Route::group(function (){
-    Route::rule('login', '/Api/Auth/userLogin');
+        //用户
+        Route::group('xxx',function(){
 
+        });
+
+    });
+
+
+    Route::group('',function () {
+
+    });
 
 });
+

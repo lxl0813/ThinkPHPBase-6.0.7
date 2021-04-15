@@ -7,5 +7,5 @@ return [
     // \think\middleware\LoadLangPack::class,
     // Session初始化
     // \think\middleware\SessionInit::class
-    \app\middleware\CorsMiddleware::class   //跨域
+    \app\api\v1\middleware\CorsMiddleware::class   //跨域
 ];

@@ -1,11 +1,10 @@
 <?php
 declare (strict_types = 1);
 
-namespace app\middleware;
+namespace app\api\v1\middleware;
 
-use app\controller\Api\ResponseApi;
+use app\api\controller\ResponseApi;
 use Firebase\JWT\JWT;
-
 /**
  * Class TokenAuthMiddleware
  * @package app\middleware
@@ -33,13 +32,13 @@ class TokenAuthMiddleware
             $request->u_id      =   $jwt['data']->u_id;
             $request->u_name    =   $jwt['data']->u_name;
             return $next($request);
-        }catch(\Firebase\JWT\SignatureInvalidException $e) {  //签名不正确
+        }catch(\Firebase\JWT\SignatureInvalidException $e) {    //签名不正确
             return $this->ResponseCreate('Token不正确',[],"bad_token");
-        }catch(\Firebase\JWT\BeforeValidException $e) {  // 签名在某个时间点之后才能用
+        }catch(\Firebase\JWT\BeforeValidException $e) {         // 签名在某个时间点之后才能用
             return $this->ResponseCreate('Token暂未生效，请等待！',[],"token_delay");
-        }catch(\Firebase\JWT\ExpiredException $e) {  // token过期
+        }catch(\Firebase\JWT\ExpiredException $e) {             // token过期
             return $this->ResponseCreate('Token过期！',[],"token_overdue");
-        }catch(\Exception $e) {  //其他错误
+        }catch(\Exception $e) {                                 //其他错误
             return $this->ResponseCreate('Token其他错误！',[],"token_other_error");
         }
     }

@@ -3,7 +3,8 @@ declare (strict_types = 1);
 
 namespace app;
 
-use app\controller\Api\ResponseApi;
+
+use app\ResponseApi;
 use think\App;
 use think\exception\ValidateException;
 use think\facade\Config;

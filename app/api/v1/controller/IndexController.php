@@ -1,12 +1,10 @@
 <?php
-namespace app\controller\Api;
+namespace app\api\v1\controller;
 
 use app\BaseController;
-use think\Response;
 
 class IndexController extends BaseController
 {
-    use ResponseApi;
 
     public function index()
     {

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace app\controller\Api;
+namespace app;
 use think\facade\Config;
 use think\Response;
 

@@ -1,7 +1,7 @@
 <?php
 declare (strict_types = 1);
 
-namespace app\middleware;
+namespace app\api\v1\middleware;
 
 class CorsMiddleware
 {

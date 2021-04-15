@@ -1,7 +1,7 @@
 <?php
 
 
-namespace app\model;
+namespace app\api\v1\model;
 
 
 use think\facade\Db;

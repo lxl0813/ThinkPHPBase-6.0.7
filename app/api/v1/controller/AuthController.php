@@ -1,13 +1,12 @@
 <?php
 declare (strict_types = 1);
 
-namespace app\controller\Api;
+namespace app\api\v1\controller;
 
+use app\api\v1\model\AuthModel;
+use app\api\v1\service\JwtService;
+use app\api\v1\validate\UserValidate;
 use app\BaseController;
-
-use app\service\JwtService;
-use app\validate\AuthLoginValidate;
-use app\model\AuthModel;
 use think\exception\ValidateException;
 use think\Request;
 use hg\apidoc\annotation as Apidoc;
@@ -27,7 +26,7 @@ class AuthController  extends BaseController
     {
         $u_info =   $request->post();
         try {
-            validate(AuthLoginValidate::class)->batch(true)->check($u_info);
+            validate(UserValidate::class)->scene('user_login')->batch(true)->check($u_info);
         } catch (ValidateException $e) {
             return $this->ResponseCreate($e->getMessage(),[],"field_validate");
         }

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace app\validate;
+namespace app\api\v1\validate;
 
 
 use think\Validate;
