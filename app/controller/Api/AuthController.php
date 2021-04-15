@@ -5,6 +5,7 @@ namespace app\controller\Api;
 
 use app\BaseController;
 
+use app\service\JwtService;
 use app\validate\AuthLoginValidate;
 use app\model\AuthModel;
 use think\exception\ValidateException;
@@ -40,7 +41,13 @@ class AuthController  extends BaseController
         if($u_base['u_status']==2){
             return $this->ResponseCreate('用户账号已经冻结！',[],'user_account_error');
         }
-        return $this->ResponseCreate('登录成功！',[]);
+        $u_Token  =   JwtService::createToken(['u_id'=>$u_base['id'],'u_name'=>$u_base['u_name']]);
+        $result   = [
+            'u_id'  =>  $u_base['id'],
+            'u_name'=>  $u_base['u_name'],
+            'token' =>  $u_Token,
+        ];
+        return $this->ResponseCreate('登录成功！',$result);
     }
 
 

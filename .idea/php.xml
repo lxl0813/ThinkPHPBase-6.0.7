@@ -23,6 +23,7 @@
       <path value="$PROJECT_DIR$/vendor/hg/apidoc" />
       <path value="$PROJECT_DIR$/vendor/topthink/think-template" />
       <path value="$PROJECT_DIR$/vendor/topthink/think-view" />
+      <path value="$PROJECT_DIR$/vendor/firebase/php-jwt" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.1" />
