@@ -11,8 +11,9 @@
 use think\facade\Route;
 
 
-
 //用户模块
 Route::group(function (){
     Route::rule('login', '/Api/Auth/userLogin');
+
+
 });
