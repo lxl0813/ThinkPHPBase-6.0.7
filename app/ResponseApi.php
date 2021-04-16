@@ -5,9 +5,23 @@ namespace app;
 use think\facade\Config;
 use think\Response;
 
+
+/**
+ * Trait ResponseApi
+ * @package app
+ */
 trait ResponseApi
 {
-    protected function ResponseCreate(string $message = "" ,$data = [] , $code = 1000 ,int $httpCode = 200 , string $type = 'json'):Response
+
+    /**
+     * @param string $message
+     * @param array $data
+     * @param int $code
+     * @param int $httpCode
+     * @param string $type
+     * @return Response
+     */
+    protected function ResponseCreate(string $message = "" , $data = [] , $code = 1000 , int $httpCode = 200 , string $type = 'json'):Response
     {
         $resultResponse =   [
                                 //业务状态码

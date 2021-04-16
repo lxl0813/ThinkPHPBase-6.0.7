@@ -118,6 +118,7 @@ abstract class BaseController
 
 
     /**
+     * 路由方法未找到。返回错误
      * @param $name
      * @param $arguments
      * @return \think\Response
